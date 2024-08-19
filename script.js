@@ -43,6 +43,7 @@ let clickFunc = function () {
       displayMessage(guess > secretNumber ? '📈 Too high!' : '📉 Too low!');
     }
   }
+  document.querySelector('.guess').value = '';
 }; // end clickFunc
 
 let againFunc = function () {
