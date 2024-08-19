@@ -8,7 +8,12 @@
 let displayMessage = function (message) {
   document.querySelector('.message').textContent = message;
 };
-let secretNumber = Math.trunc(Math.random() * 20) + 1;
+let displayScore = function (score) {
+  document.querySelector('.score').textContent = score;
+};
+let randInt = () => Math.trunc(Math.random() * 20) + 1;
+
+let secretNumber = randInt();
 
 let score = 20;
 
@@ -38,10 +43,10 @@ document.querySelector('.check').addEventListener('click', function () {
       document.getElementsByTagName('body')[0].style.backgroundColor =
         '#a94545';
       score = 0;
-      document.querySelector('.score').textContent = score;
+      displayScore(score);
     } else {
       score--;
-      document.querySelector('.score').textContent = score;
+      displayScore(score);
       displayMessage(guess > secretNumber ? '📈 Too high!' : '📉 Too low!');
     }
   }
@@ -49,11 +54,11 @@ document.querySelector('.check').addEventListener('click', function () {
 
 document.querySelector('.again').addEventListener('click', function () {
   score = 20;
-  document.querySelector('.score').textContent = score;
+  displayScore(score);
   document.querySelector('.number').textContent = '?';
   document.querySelector('.guess').value = '';
   displayMessage('Start guessing...');
   document.querySelector('.number').style.width = '15rem';
   document.querySelector('body').style.backgroundColor = '#222';
-  secretNumber = Math.trunc(Math.random() * 20) + 1;
+  secretNumber = randInt();
 });
