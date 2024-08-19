@@ -62,8 +62,12 @@ let score = 20;
 
 let highscore = 0;
 
-``;
-
 document.querySelector('.check').addEventListener('click', clickFunc);
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Enter') clickFunc();
+});
 
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape') againFunc();
+});
 document.querySelector('.again').addEventListener('click', againFunc);
